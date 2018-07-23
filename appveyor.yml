@@ -1,6 +1,9 @@
 before_build:
   - nuget restore
 
+cache:
+- packages
+
 build:
   verbosity: minimal
   publish_wap: true
