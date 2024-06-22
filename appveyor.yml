@@ -1,3 +1,6 @@
+init:
+- appveyor version
+
 before_build:
   - nuget restore
 
@@ -6,5 +9,4 @@ cache:
 
 build:
   verbosity: minimal
-  publish_wap: true
   publish_azure: true
