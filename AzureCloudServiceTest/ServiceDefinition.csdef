@@ -20,19 +20,4 @@
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
     </ConfigurationSettings>
   </WorkerRole>
-  <NetworkConfiguration>
-    <VirtualNetworkSite name="VNet-test-cloud-service-extended" />
-    <AddressAssignments>
-      <InstanceAddress roleName="WebRole">
-        <Subnets>
-          <Subnet name="DefaultVNetSubnet" />
-        </Subnets>
-      </InstanceAddress>
-      <InstanceAddress roleName="WorkerRole">
-        <Subnets>
-          <Subnet name="DefaultVNetSubnet" />
-        </Subnets>
-      </InstanceAddress>
-    </AddressAssignments>
-  </NetworkConfiguration>
 </ServiceDefinition>
