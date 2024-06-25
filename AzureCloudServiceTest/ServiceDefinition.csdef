@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServiceTest" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
-  <WebRole name="WebRole" vmsize="Small">
+  <WebRole name="WebRole" vmsize="Standard_D1_v2">
     <Sites>
       <Site name="Web">
         <Bindings>
@@ -15,9 +15,24 @@
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
     </Endpoints>
   </WebRole>
-  <WorkerRole name="WorkerRole" vmsize="Small">
+  <WorkerRole name="WorkerRole" vmsize="Standard_D1_v2">
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
     </ConfigurationSettings>
   </WorkerRole>
+  <NetworkConfiguration>
+    <VirtualNetworkSite name="VNet-test-cloud-service-extended" />
+    <AddressAssignments>
+      <InstanceAddress roleName="WebRole">
+        <Subnets>
+          <Subnet name="DefaultVNetSubnet" />
+        </Subnets>
+      </InstanceAddress>
+      <InstanceAddress roleName="WorkerRole">
+        <Subnets>
+          <Subnet name="DefaultVNetSubnet" />
+        </Subnets>
+      </InstanceAddress>
+    </AddressAssignments>
+  </NetworkConfiguration>
 </ServiceDefinition>
